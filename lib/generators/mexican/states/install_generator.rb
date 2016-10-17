@@ -1,25 +1,36 @@
 require 'rails/generators'
+require 'rails/generators/migration'
 
 module Mexican
   module States
     class InstallGenerator < ::Rails::Generators::Base
+      include Rails::Generators::Migration
 
-      source_root File.expand_path('../../../templates/active_record/models', __FILE__)
-      desc "Create state model migration"
+      source_root File.expand_path('../../../templates/active_record/', __FILE__)
 
 
-      def copy_migrations
-        migration_template "create_double_double.rb",
-          "db/migrate/create_double_double.rb"
+      def self.next_migration_number(path)
+        next_migration_number = current_migration_number(path) + 1
+        ActiveRecord::Migration.next_migration_number(next_migration_number)
       end
 
-      def copy_models
-        copy_file "state.rb", "app/models/state.rb"
-        copy_file "city.rb", "app/models/city.rb"
-        copy_file "neighborhood.rb", "app/models/neighborhood.rb"
+      desc 'Copy base migrations'
+      def copy_migrations
+        migration_template '../migrations/mexican_states_create_states.rb',
+                           'db/migrate/mexican_states_create_states.rb'
+        migration_template '../migrations/mexican_states_create_cities.rb',
+                           'db/migrate/mexican_states_create_cities.rb'
+        migration_template '../migrations/mexican_states_neighborhoods.rb',
+                           'db/migrate/mexican_states_neighborhoods.rb'
         rake "db:migrate"
+      end
+
+      desc 'Copy base models'
+      def copy_models
+        copy_file './models/state.rb', 'app/models/state.rb'
+        copy_file './models/city.rb', 'app/models/city.rb'
+        copy_file './models/neighborhood.rb', 'app/models/neighborhood.rb'
       end
     end
   end
 end
-
