@@ -16,12 +16,12 @@ module Mexican
 
       desc 'Copy base migrations'
       def copy_migrations
-        migration_template '../migrations/mexican_states_create_states.rb',
-                           'db/migrate/mexican_states_create_states.rb'
-        migration_template '../migrations/mexican_states_create_cities.rb',
-                           'db/migrate/mexican_states_create_cities.rb'
-        migration_template '../migrations/mexican_states_neighborhoods.rb',
-                           'db/migrate/mexican_states_neighborhoods.rb'
+        migration_template '../migrations/create_states.rb',
+                           'db/migrate/create_states.rb'
+        migration_template '../migrations/create_cities.rb',
+                           'db/migrate/create_cities.rb'
+        migration_template '../migrations/create_neighborhoods.rb',
+                           'db/migrate/create_neighborhoods.rb'
         rake "db:migrate"
       end
 
