@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Carlos Omana']
   spec.email         = ['hello@disblu.com']
 
-  spec.summary       = 'TODO: Write a short summary, requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
+  spec.summary       = 'This gem will help you to'
+  spec.description   = 'Write a longer description or delete this line.'
   spec.homepage      = 'https://github.com/disblu/mexican-states'
   spec.license       = 'MIT'
 
