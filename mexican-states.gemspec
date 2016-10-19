@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'This gem contains data of every state, city and ' \
                         'neighborhood in Mexico'
   spec.description   = 'The gem will create 3 models (State, City and' \
-                       'Neighborhood)'
+                       ' Neighborhood)'
   spec.homepage      = 'https://github.com/disblu/mexican-states'
   spec.license       = 'MIT'
 

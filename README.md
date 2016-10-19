@@ -24,7 +24,7 @@ Next, you need to run the generator:
 rails g mexican:states:install
 ```
 
-This command will create 3 models (State, City and Neighborhood) and it's going to populate the database.
+This command will create 3 models (State, City and Neighborhood) and it's going to populate the database with the data of each state, city and neighborhood of Mexico.
 
 ## Development
 
