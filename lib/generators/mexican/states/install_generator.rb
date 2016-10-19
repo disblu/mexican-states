@@ -1,5 +1,5 @@
 require 'rails/generators'
-# require 'rails/generators/migration'
+require 'rails/generators/migration'
 require 'csv'
 
 module Mexican
@@ -10,45 +10,33 @@ module Mexican
       source_root File.expand_path('../../../templates/active_record/',
                                    __FILE__)
 
-      # def self.next_migration_number(path)
-      #   next_migration_number = current_migration_number(path) + 1
-      #   ActiveRecord::Migration.next_migration_number(next_migration_number)
-      # end
+      def self.next_migration_number(path)
+        next_migration_number = current_migration_number(path) + 1
+        ActiveRecord::Migration.next_migration_number(next_migration_number)
+      end
 
-      # desc 'Copy base migrations'
-      # def copy_migrations
-      #   migration_template '../migrations/create_states.rb',
-      #                      'db/migrate/create_states.rb'
-      #   migration_template '../migrations/create_cities.rb',
-      #                      'db/migrate/create_cities.rb'
-      #   migration_template '../migrations/create_neighborhoods.rb',
-      #                      'db/migrate/create_neighborhoods.rb'
-      #   rake 'db:migrate'
-      # end
+      desc 'Copy base migrations'
+      def copy_migrations
+        migration_template '../migrations/create_states.rb',
+                           'db/migrate/create_states.rb'
+        migration_template '../migrations/create_cities.rb',
+                           'db/migrate/create_cities.rb'
+        migration_template '../migrations/create_neighborhoods.rb',
+                           'db/migrate/create_neighborhoods.rb'
+        rake 'db:migrate'
+      end
 
-      # desc 'Copy base models'
-      # def copy_models
-      #   copy_file './models/state.rb', 'app/models/state.rb'
-      #   copy_file './models/city.rb', 'app/models/city.rb'
-      #   copy_file './models/neighborhood.rb', 'app/models/neighborhood.rb'
-      # end
+      desc 'Copy base models'
+      def copy_models
+        copy_file './models/state.rb', 'app/models/state.rb'
+        copy_file './models/city.rb', 'app/models/city.rb'
+        copy_file './models/neighborhood.rb', 'app/models/neighborhood.rb'
+      end
 
       desc 'Seed models'
       def seed_models
         root = File.expand_path '../../../../support/', __FILE__
-        # Dir.glob(root) do |rb_file|
-          # CSV.foreach(File.join(root, "01.csv")) do |row|
-
-
-          Dir.glob(root + "/*.csv") do |rb_file|
-            puts rb_file
-            # do work on files ending in .rb in the desired directory
-          # end
-
-          # Dir.foreach(root) do |item|
-          #   next if item == '.' or item == '..'
-
-          # puts item
+        Dir.glob(root + '/*.csv') do |rb_file|
           CSV.foreach(File.join(rb_file)) do |row|
             state_name = row[3]
             city_name = row[2]
