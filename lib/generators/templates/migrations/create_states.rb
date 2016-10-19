@@ -1,3 +1,4 @@
+# Create state migration file
 class CreateStates < ActiveRecord::Migration
   def change
     create_table :states do |t|

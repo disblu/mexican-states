@@ -9,8 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Carlos Omana']
   spec.email         = ['hello@disblu.com']
 
-  spec.summary       = 'This gem will help you to'
-  spec.description   = 'Write a longer description or delete this line.'
+  spec.summary       = 'This gem contains data of every state, city and ' \
+                        'neighborhood in Mexico'
+  spec.description   = 'The gem will create 3 models (State, City and' \
+                       'Neighborhood)'
   spec.homepage      = 'https://github.com/disblu/mexican-states'
   spec.license       = 'MIT'
 
