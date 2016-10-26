@@ -29,6 +29,7 @@ module Mexican
           city = City.find_or_create_by(name: city_name, state_id: state.id)
           Neighborhood.find_or_create_by(name: neighborhood_name,
                                          zip_code: neighborhood_zip_code,
+                                         state_id: state.id,
                                          city_id: city.id)
         end
       end
