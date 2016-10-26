@@ -5,6 +5,7 @@ class CreateNeighborhoods < ActiveRecord::Migration
       t.string :name
       t.string :zip_code
       t.references :city, index: true, foreign_key: true
+      t.references :state, index: true, foreign_key: true
 
       t.timestamps null: false
     end
