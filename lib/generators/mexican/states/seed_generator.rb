@@ -1,5 +1,6 @@
 require 'rails/generators'
 require 'csv'
+require 'rainbow'
 
 module Mexican
   # States module
@@ -14,6 +15,8 @@ module Mexican
       def seed_models
         root = File.expand_path '../../../../support/', __FILE__
         Dir.glob(root + '/*.csv') do |rb_file|
+          puts "#{Rainbow('Installing').red}
+            #{Rainbow(rb_file.scan(/[á-óa-zA-Z]+[_[á-óa-zA-Z]+]*/)[-3]).green}"
           save_datum(File.join(rb_file))
         end
       end
