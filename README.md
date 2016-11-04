@@ -26,7 +26,7 @@ rails g mexican:states:install
 
 This command will create 3 models (State, City and Neighborhood).
 
-To populate the database run the next command: (it's going to populate the database with the data of each state, city and neighborhood of Mexico.)
+To populate the database run the next command: (it's going to populate the database with the data of each state, city and neighborhood of México)
 
 ```ruby
 rails g mexican:states:seed
@@ -49,10 +49,8 @@ Chiapas
 Chihuahua
 Coahuila_de_Zaragoza
 Colima
-Installing Colima
 Distrito_Federal
 Durango
-Installing Durango
 Guanajuato
 Guerrero
 Hidalgo
