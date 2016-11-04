@@ -24,7 +24,58 @@ Next, you need to run the generator:
 rails g mexican:states:install
 ```
 
-This command will create 3 models (State, City and Neighborhood) and it's going to populate the database with the data of each state, city and neighborhood of Mexico.
+This command will create 3 models (State, City and Neighborhood).
+
+To populate the database run the next command: (it's going to populate the database with the data of each state, city and neighborhood of Mexico.)
+
+```ruby
+rails g mexican:states:seed
+```
+
+If you want to select just some states, you can just pass the name of the states as arguments.
+
+```ruby
+rails g mexican:states:seed Aguascalientes Baja_California_Sur
+```
+
+
+Full list of available states
+```
+Aguascalientes
+Baja_California
+Baja_California_Sur
+Campeche
+Chiapas
+Chihuahua
+Coahuila_de_Zaragoza
+Colima
+Installing Colima
+Distrito_Federal
+Durango
+Installing Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán_de_Ocampo
+Morelos
+Nayarit
+Nuevo_León
+Oaxaca
+Puebla
+Querétaro
+Quintana_Roo
+San_Luis_Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz_de_Ignacio_de_la_Llave
+Yucatán
+Zacatecas
+```
 
 ## Development
 
