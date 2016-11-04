@@ -11,13 +11,18 @@ module Mexican
 
       source_root File.expand_path('../../../templates/active_record/',
                                    __FILE__)
+
+      argument :states, type: :array, default: []
+
       desc 'Seed models'
       def seed_models
         root = File.expand_path '../../../../support/', __FILE__
         Dir.glob(root + '/*.csv') do |rb_file|
-          puts "#{Rainbow('Installing').red}
-            #{Rainbow(rb_file.scan(/[á-óa-zA-Z]+[_[á-óa-zA-Z]+]*/)[-3]).green}"
-          save_datum(File.join(rb_file))
+          state = rb_file.scan(/[á-óa-zA-Z]+[_[á-óa-zA-Z]+]*/)[-3]
+          if states.empty? || states.include?(state)
+            puts "#{Rainbow('Installing').red} #{Rainbow(state).green}"
+            save_datum(File.join(rb_file))
+          end
         end
       end
 
