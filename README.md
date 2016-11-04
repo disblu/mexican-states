@@ -10,7 +10,7 @@ gem 'mexican-states'
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
